@@ -13,17 +13,10 @@ else
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$server = "tsuts.tskoli.is";
-$user = "1309932819";
-$pass = "mypassword";
-$dbname = "1309932819_lokaverkefnigso";
-$conn = mysqli_connect($server, $user, $pass, $dbname);
-if (!$conn) 
-{
-    die("Connection failed: " . mysqli_connect_error());
-}
-$result = mysqli_query($conn, "SELECT password,username FROM login WHERE password='$password' AND username='$username'" );
-$rows = mysqli_num_rows($result);
+$query = "SELECT password,username FROM login WHERE password='$password' AND username='$username'";
+require_once('connection.php');
+$sql = mysqli_query($conn, $query);
+$rows = mysqli_num_rows($sql);
 if ($rows == 1) 
 {
 	$_SESSION['login_user']=$username; // Initializing Session

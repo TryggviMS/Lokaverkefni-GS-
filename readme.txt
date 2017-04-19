@@ -1,0 +1,1 @@
+https://www.formget.com/login-form-in-php/ grunnurinn af login formi og session fenginn hér.

@@ -1,12 +1,12 @@
-
 <?php
 session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) 
 {
+	$A = "2";
 if (empty($_POST['username']) || empty($_POST['password'])) 
 {
-	$error = "Username or Password is invalid";
+	$error = "Username or Password is invalid" .$A;
 }
 else
 {

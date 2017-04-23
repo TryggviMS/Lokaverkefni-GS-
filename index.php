@@ -4,9 +4,9 @@
 include('login.php');
 include('nyskraning.php');
 
-/*if(isset($_SESSION['login_user'])){
+if(isset($_SESSION['login_user'])){
 header("location: profile.php");
-}*/
+}
 
 
 ?>
@@ -21,11 +21,11 @@ header("location: profile.php");
 	<h1>PHP Login Session Example</h1>
 <div id="login">
 	<h2>Login Form</h2>
-	<form action="login.php" method="post">
+	<form action="" method="post">
 		<label>UserName :</label>
 			<input id="name" name="username" placeholder="username" type="text">
 		<label>Password :</label>
-			<input id="password" name="password" placeholder="**********" type="text">
+			<input id="password" name="password" placeholder="******" type="text">
 			<input name="submit" type="submit" value="Login ">
 		<span><?php echo $error; ?></span>
 	</form>
@@ -41,6 +41,7 @@ header("location: profile.php");
 		<label>Lykilorð Aftur</label>
 			<input type="text" name="passi2">
 		<input name="nyskraning" type="submit" value="nyskraning">
+		<span><?php echo $error2; ?></span>
 	</form>
 </div>
 <a href="adalsida.php">auka</a>

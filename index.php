@@ -13,38 +13,40 @@ header("location: profile.php");
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login Form in PHP with Session</title>
+<title>Aðalsíða</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
 </head>
 <body>
-<div id="main">
-	<h1>PHP Login Session Example</h1>
-<div id="login">
-	<h2>Login Form</h2>
-	<form action="" method="post">
-		<label>UserName :</label>
-			<input id="name" name="username" placeholder="username" type="text">
-		<label>Password :</label>
-			<input id="password" name="password" placeholder="******" type="text">
-			<input name="submit" type="submit" value="Login ">
-		<span><?php echo $error; ?></span>
-	</form>
-</div>
 
-
-<div id="login">
-	<form action="" method="post">
-		<label>Notandanafn</label>
-		<input type="text" name="nafn">
-		<label>Lykilorð</label>
-			<input type="text" name="passi">
-		<label>Lykilorð Aftur</label>
-			<input type="text" name="passi2">
-		<input name="nyskraning" type="submit" value="nyskraning">
-		<span><?php echo $error2; ?></span>
-	</form>
-</div>
-<a href="adalsida.php">auka</a>
-</div>
+	
+		<h1>GSÖ lokaverkefni</h1>
+		<div id="login">
+			<h2>Innskráning</h2>
+			<form action="" method="post">
+				<label>Notandanafn:</label>
+					<input id="name" name="username" placeholder="Notandanafn" type="text">
+				<label>Lykilorð:</label>
+					<input id="password" name="password" placeholder="******" type="Password">
+					<input name="submit" type="submit" value="Skrá inn ">
+				<span><?php echo $error; ?></span>
+			</form>
+		</div>
+		<div id="login">
+			<h2>Nýskráning</h2>
+			<form action="" method="post">
+				<label>Notandanafn:</label>
+				<input type="text" name="nafn" placeholder="Notandanafn">
+				<label>Lykilorð:</label>
+					<input type="text" name="passi" placeholder="Lykilorð">
+				<label>Lykilorð Aftur:</label>
+					<input type="text" name="passi2" placeholder="Lykilorð aftur">
+				<input name="nyskraning" type="submit" value="Nýskraning">
+				<span><?php echo $error2; ?></span>
+				<div><?php echo $error3; ?></div>
+			</form>
+		</div>
+		<div class="clear"></div>
+	
 </body>
 </html>

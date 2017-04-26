@@ -1,7 +1,8 @@
 <?php 
 $error2 = '';
+$error3 = '';
 if (isset($_POST['nyskraning'])) {
-	require_once('connection.php');
+	require_once('./includes/connection.php');
 	$notandanafn = $_POST['nafn'];
 	$passi =  $_POST['passi'];
 	$passi2 = $_POST['passi2'];
@@ -12,17 +13,14 @@ if (isset($_POST['nyskraning'])) {
 		if ($passi == $passi2) {//ef passwordin eru hin sömu
 		$sql = "INSERT INTO login (username, password) VALUES ('$notandanafn', '$passi')";
 
-		if ($conn->query($sql) === TRUE) 
+		if (mysqli_query($conn, $sql)) 
 		{
-		    echo "Skráning tókst";
+		    $error3 = "Skráning tókst!";
 		} else 
 		{
-		    echo "Villa: " . $sql . "<br>" . $conn->error;
+		    echo "Villa: " . $sql . "<br>" . mysqli_error($conn);
 		}
-
-		
-
-		$conn->close();
+		mysqli_close($conn);
 	}
 	else 
 		{

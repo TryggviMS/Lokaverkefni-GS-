@@ -3,7 +3,7 @@ session_start();// Starting Session
 // Storing Session
 $user_check=$_SESSION['login_user'];
 
-require_once('connection.php');
+require_once('./includes/connection.php');
 $query = mysqli_query($conn, "SELECT notandi_id,username FROM login WHERE username='$user_check'");
 $row = mysqli_fetch_assoc($query);
 

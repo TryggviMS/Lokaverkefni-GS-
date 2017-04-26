@@ -2,27 +2,18 @@
 /*----------------------------------------------
 CSS Settings For HTML Div ExactCenter
 ------------------------------------------------*/
-#main {
-width:960px;
-margin:50px auto;
-font-family:raleway
+body {
+	width: 960px;
+	margin:auto;
+	padding:0px 50px 50px;
+border:1px dashed grey;
+font-size:20px;
+background-color:#DCE6F7;
 }
-span {
-color:red
+html {
+	background-color: white;
 }
-h2 {
-background-color:#FEFFED;
-text-align:center;
-border-radius:10px 10px 0 0;
-margin:-10px -40px;
-padding:15px
-}
-hr {
-border:0;
-border-bottom:1px solid #ccc;
-margin:10px -40px;
-margin-bottom:30px
-}
+
 #login {
 width:300px;
 float:left;
@@ -30,16 +21,52 @@ border-radius:10px;
 font-family:raleway;
 border:2px solid #ccc;
 padding:10px 40px 25px;
-margin-top:70px
+background-color: white;
+height: 350px;
+margin-left: 10px;
 }
-input[type=text],input[type=password] {
+#profile {
+
+}
+#logout {
+float:right;
+padding:5px;
+border:dashed 1px gray;
+}
+span {
+color:red;
+}
+h1 {
+	text-align: center;
+}
+h2 {
+text-align:center;
+border-radius:10px 10px 0 0;
+margin:-10px -40px;
+padding:15px;
+}
+input[type=text], input[type=password] {
 width:99.5%;
 padding:10px;
 margin-top:8px;
 border:1px solid #ccc;
 padding-left:5px;
 font-size:16px;
-font-family:raleway
+font-family:raleway;
+}
+#del, button[type=submit] {
+   
+    background-color: red;
+    width: auto;
+}
+button[type=submit] {
+width:100%;
+background-color:#FFBC00;
+color:#fff;
+padding:10px;
+font-size:20px;
+cursor:pointer;
+border-radius:5px;
 }
 input[type=submit] {
 width:100%;
@@ -50,34 +77,32 @@ padding:10px;
 font-size:20px;
 cursor:pointer;
 border-radius:5px;
-margin-bottom:15px
+margin-bottom:15px;
+margin-top: 15px;
 }
-button[type=submit] {
-width:100%;
-background-color:#FFBC00;
-color:#fff;
-border:2px solid #FFCB00;
-padding:10px;
-font-size:20px;
-cursor:pointer;
-border-radius:5px;
-margin-bottom:15px
-}
-#profile {
-padding:50px;
-border:1px dashed grey;
-font-size:20px;
-background-color:#DCE6F7
-}
-#logout {
-float:right;
-padding:5px;
-border:dashed 1px gray
-}
+
+
 a {
 text-decoration:none;
-color:#6495ed
+color:#6495ed;
 }
 i {
-color:#6495ed
+color:#6495ed;
 }
+
+.clear {
+	clear: both;
+}
+table {
+    border-collapse: collapse;
+    float: none;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+    width: 60px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+

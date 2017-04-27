@@ -1,4 +1,4 @@
-@import http://fonts.googleapis.com/css?family=Raleway;
+
 /*----------------------------------------------
 CSS Settings For HTML Div ExactCenter
 ------------------------------------------------*/
@@ -14,37 +14,38 @@ html {
 	background-color: white;
 }
 
-#login {
+.login {
 width:300px;
 float:left;
 border-radius:10px;
-font-family:raleway;
 border:2px solid #ccc;
 padding:10px 40px 25px;
 background-color: white;
 height: 350px;
 margin-left: 10px;
 }
-#profile {
 
-}
 #logout {
 float:right;
 padding:5px;
 border:dashed 1px gray;
 }
+
 span {
 color:red;
 }
+
 h1 {
 	text-align: center;
 }
+
 h2 {
 text-align:center;
 border-radius:10px 10px 0 0;
 margin:-10px -40px;
 padding:15px;
 }
+
 input[type=text], input[type=password] {
 width:99.5%;
 padding:10px;
@@ -52,23 +53,19 @@ margin-top:8px;
 border:1px solid #ccc;
 padding-left:5px;
 font-size:16px;
-font-family:raleway;
 }
-#del, button[type=submit] {
+
+#del, button {
    
     background-color: red;
     width: auto;
 }
-button[type=submit] {
-width:100%;
-background-color:#FFBC00;
-color:#fff;
-padding:10px;
-font-size:20px;
-cursor:pointer;
-border-radius:5px;
+#nafnlisti, button {
+    background-color: silver;
+    width: auto;
 }
-input[type=submit] {
+
+button {
 width:100%;
 background-color:#FFBC00;
 color:#fff;
@@ -80,18 +77,26 @@ border-radius:5px;
 margin-bottom:15px;
 margin-top: 15px;
 }
-
-
 a {
 text-decoration:none;
 color:#6495ed;
 }
+
 i {
 color:#6495ed;
 }
 
 .clear {
 	clear: both;
+}
+.fhaegri {
+    float: right;
+}
+.fvinstri {
+    float: left;
+}
+.still1 {
+    width: 275px;
 }
 table {
     border-collapse: collapse;
@@ -100,9 +105,10 @@ table {
 
 th, td {
     text-align: center;
-    padding: 8px;
-    width: 60px;
+    padding: 5px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){
+    background-color: #f2f2f2
+}
 

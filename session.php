@@ -8,6 +8,7 @@ $query = mysqli_query($conn, "SELECT notandi_id,username FROM login WHERE userna
 $row = mysqli_fetch_assoc($query);
 
 $notandi_session =$row['username'];
+$notandi_session = ucfirst($notandi_session);
 $notandiID_session = $row['notandi_id'];
 if(!isset($notandi_session)){
 	mysqli_close($conn); // Closing Connection

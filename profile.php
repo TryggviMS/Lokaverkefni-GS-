@@ -2,10 +2,16 @@
 include('session.php');
 include ('skraAatburd.php');
 include('./includes/connection.php');
+
 $fylki = [];
-$sql = "SELECT atburdurID,atburdur,timi FROM atburdur";
+$sql;
+$result;
+//þessi sql skiptin nær í alla viðburði og gögnin eru birt í töflu á síðunni
+$sql = "SELECT atburdurID,atburdur,timi,dagsetning FROM atburdur";
 $result = mysqli_query($conn, $sql);
-$fjoldiAtburda = mysqli_num_rows($result);
+//þessi
+$fjoldiAtburda = mysqli_num_rows($result);//þessi breyta geymir fjölda atburða sem eru skráðir í gagnagrunn
+//þessi sql skiptun er notuð til að skoða í hvaða atburði sá notandi sem er skráður inn er búinn að skrá sig í, niðurstöðurnar birtast sem grænn eða rauður hringur í töflunni
 $sql2 = "SELECT atburdur_ID FROM skraningm2m WHERE notandi_ID = '$notandiID_session' ORDER BY atburdur_ID";
 $result2 = mysqli_query($conn, $sql2);
 if (!(mysqli_num_rows($result2) > $fjoldiAtburda)) {
@@ -18,6 +24,21 @@ if (!(mysqli_num_rows($result2) > $fjoldiAtburda)) {
 		}
 	}
 }
+
+if (isset($_GET['selectOptions'])) {
+	$var = $_GET['selectOptions'];
+	if ($var == "Sjá allt") {
+		/*$sql = "SELECT atburdurID,atburdur,timi,dagsetning FROM atburdur";
+		$result = mysqli_query($conn, $sql);*/
+	}
+	else {
+		$sql = "SELECT atburdurID,atburdur,timi,dagsetning FROM atburdur WHERE dagsetning = '$var'";
+		$result = mysqli_query($conn, $sql);
+	}
+		
+        
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -33,15 +54,26 @@ if (!(mysqli_num_rows($result2) > $fjoldiAtburda)) {
 <h3>&nbsp;<span><?php echo $skilabod;  ?></span><?php echo $skilabod2 ?></h3>
 
 <?php 
+require_once('select.php');
 
-//resultHÉRNA er form með table búið til útfrá gögnum sem eru sótt í gagnagrunn. Það er listi yfir alla atburði sem eru í boði. Það er hnappur við hvern lista sem er hægt að ýta á og skrá þann notanda sem er loggaður inn á atburð.
+ ?>
+
+<div class="fvinstri">
+
+<?php 
+
+
 $erSkradur = '';
-if($result){
-	echo '<form  method="post" action=""> <table cellspacing="5" cellpadding="8">
+$strengur = '';
+if(isset($result)){
+	//HÉRNA er form með table búið til útfrá gögnum sem eru sótt í gagnagrunn. Það er listi yfir alla atburði sem eru í boði. Það er hnappur við hvern lista sem er hægt að ýta á og skrá þann notanda sem er loggaður inn á atburð.
+	echo '<form  method="post" action=""> 
+	<table>
 	<tr>
 	<th>Staða:</th>
 	<th>Atburður:</th>
 	<th>Tími:</th>
+	<th>Dagsetning:</th>
 	<th>Skrá</th>
 	<th>Afskrá</th>
 	</tr>';
@@ -58,12 +90,16 @@ if($result){
 	    <td>' . $erSkradur . '</td>
 		<td>' . $row[1] . '</td>
 		<td>' .$row[2] . '</td>
+		<td>' .$row[3] . '</td>
+
 		<td>' . '<button name="atbudurNAFN" value="'.$row[0].";".$row[1].'" type="submit">Skrá</button>' .'</td> 
-		<td>' . '<button id="del" name="eydaUrAtburd" value="'.$row[0].";".$row[1].'" type="submit">X</button>' .'</td>
+		<td>' . '<button id="del" name="eydaUrAtburd" value="'.$row[0].";".$row[1].'">&otimes;</button>' .'</td>
+		<td>' . '<button id="nafnlisti" name="skodaSkrada" value="'.$row[0].";".$row[1].'">&rarr;</button>' .'</td>
 		</tr>';//þegar ýtt er á hnappinn með name="atbudurNAFN" þá eru upplýsingar um notanda sendar og notandi er skráður á viðeigandi atburð, þegar ýtt er á hnapp með name="eydaUrAtburd" ef notandi afskráður af viðeigandi atburðu
 		
 	}
-	echo '</table> 
+	echo 
+	'</table> 
 	</form>';
  }
 else {
@@ -73,10 +109,18 @@ else {
 mysqli_close($conn);
 
  ?>
-  
+  </div>
+  <div class="fhaegri still1">
+
+
+  <?php 
+echo $strengur1;
+echo $strengur2;
+echo $strengur3;
+   ?></div>
  <div class="clear"></div>
 <div id="logout"><b><a href="logout.php">Útskrá</a></b></div>
-
+&rarr;
 </body>
 </html>
 
